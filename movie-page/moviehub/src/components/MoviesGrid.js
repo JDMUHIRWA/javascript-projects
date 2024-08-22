@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../styles.css';
 
 export default function MoviesGrid() {
     const [movies, setMovies] = React.useState([]);
-    
 
-  return (
-    <div>
         
-        </div>
-    );
+        useEffect (() => {
+            fetch('movies.json')
+            .then(response => response.json())
+            .then(data => {
+                setMovies(data);
+            })
+            
+        }, [])
+        return (
+            <div>
+                {movies.length}
+
+                </div>
+            );
     }
