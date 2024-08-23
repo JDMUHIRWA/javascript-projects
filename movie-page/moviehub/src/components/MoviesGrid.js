@@ -5,6 +5,7 @@ import MovieCard from "./MoviesCard";
 export default function MoviesGrid() {
   const [movies, setMovies] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
+  
   useEffect(() => {
     fetch("movies.json")
       .then((response) => response.json())
