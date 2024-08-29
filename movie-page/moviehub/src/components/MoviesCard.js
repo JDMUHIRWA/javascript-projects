@@ -1,11 +1,11 @@
 import React from "react";
 import "../styles.css";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, isWatchlisted, toggleWatchlist }) {
   const handleError = (e) => {
-    e.target.src = "images/default.png"
-};
-    const getRatingClass = (rating) => {
+    e.target.src = "images/default.png";
+  };
+  const getRatingClass = (rating) => {
     if (rating >= 8) {
       return "rating-good";
     } else if (rating >= 6 && rating < 8) {
@@ -22,8 +22,16 @@ export default function MovieCard({ movie }) {
         onError={handleError}
       />
       <h3 className="movie-card-title">{movie.title}</h3>
-      <p className="movie-card-genre">{movie.genre}</p>
-      <p className={`movie-card-rating ${getRatingClass(movie.rating)}`}>{movie.rating}</p>
+
+      <div>
+        <span className="movie-card-genre">{movie.genre}</span>
+        <span className={`movie-card-rating ${getRatingClass(movie.rating)}`}>
+          {movie.rating}
+        </span>
+      </div>
+      <label>
+        <input></input>
+      </label>
     </div>
   );
 }
